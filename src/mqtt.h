@@ -6,6 +6,7 @@
 #include <ESPAsyncWiFiManager.h>    // https://github.com/alanswx/ESPAsyncWiFiManager
 #include <vector>
 #include "baseconfig.h"
+#include "_Release.h"
 #include <ETH.h>
 
 #ifdef ESP8266
