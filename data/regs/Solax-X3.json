@@ -7,7 +7,7 @@
           "#ClientID",
           "0x04",
           "0x00",
-          "0x00",
+          "0x03",
           "0x00",
           "0x78"
         ],
@@ -201,8 +201,8 @@
         },
         {
           "position": [
-            9,
-            10
+            3,
+            4
           ],
           "name": "PvVoltage1",
           "realname": "Pv Voltage 1",
@@ -212,8 +212,8 @@
         },
         {
           "position": [
-            11,
-            12
+            5,
+            6
           ],
           "name": "PvVoltage2",
           "realname": "Pv Voltage 2",
@@ -223,8 +223,8 @@
         },
         {
           "position": [
-            13,
-            14
+            7,
+            8
           ],
           "name": "PvCurrent1",
           "realname": "Pv Current 1",
@@ -234,8 +234,8 @@
         },
         {
           "position": [
-            15,
-            16
+            9,
+            10
           ],
           "name": "PvCurrent2",
           "realname": "Pv Current 2",
@@ -245,8 +245,8 @@
         },
         {
           "position": [
-            19,
-            20
+            13,
+            14
           ],
           "name": "Temperature",
           "realname": "Temperature",
@@ -255,8 +255,8 @@
         },
         {
           "position": [
-            21,
-            22
+            15,
+            16
           ],
           "name": "InverterStatus",
           "realname": "Inverter Status",
@@ -310,8 +310,8 @@
         },
         {
           "position": [
-            23,
-            24
+            17,
+            18
           ],
           "name": "PowerPv1",
           "realname": "Power PV 1",
@@ -321,8 +321,8 @@
         },
         {
           "position": [
-            25,
-            26
+            19,
+            20
           ],
           "name": "PowerPv2",
           "realname": "Power PV 2",
@@ -332,8 +332,8 @@
         },
         {
           "position": [
-            43,
-            44
+            37,
+            38
           ],
           "name": "BatVoltage",
           "realname": "Battery Voltage",
@@ -343,8 +343,8 @@
         },
         {
           "position": [
-            45,
-            46
+            39,
+            40
           ],
           "name": "BatCurrent",
           "realname": "Battery Current",
@@ -354,8 +354,8 @@
         },
         {
           "position": [
-            47,
-            48
+            41,
+            42
           ],
           "name": "BatPower",
           "realname": "Battery Power",
@@ -365,8 +365,8 @@
         },
         {
           "position": [
-            51,
-            52
+            45,
+            46
           ],
           "name": "BatTemp",
           "realname": "Battery Temperature",
@@ -375,8 +375,8 @@
         },
         {
           "position": [
-            55,
-            56
+            49,
+            50
           ],
           "name": "GridStatus",
           "realname": "Grid Status",
@@ -394,8 +394,8 @@
         },
         {
           "position": [
-            59,
-            60
+            53,
+            54
           ],
           "name": "BatCapacity",
           "realname": "Battery Capacity",
@@ -405,10 +405,10 @@
         },
         {
           "position": [
-            63,
-            64,
-            61,
-            62
+            57,
+            58,
+            55,
+            56
           ],
           "name": "OutputEnergyChargeWh",
           "realname": "Output Energy Charge (Wh)",
@@ -419,10 +419,10 @@
         },
         {
           "position": [
-            63,
-            64,
-            61,
-            62
+            57,
+            58,
+            55,
+            56
           ],
           "name": "OutputEnergyChargeKWh",
           "realname": "Output Energy Charge (KWh)",
@@ -432,8 +432,8 @@
         },
         {
           "position": [
-            67,
-            68
+            61,
+            62
           ],
           "name": "OutputEnergyChargeToday",
           "realname": "Output Energy Charge Today",
@@ -443,10 +443,10 @@
         },
         {
           "position": [
-            71,
-            72,
-            69,
-            70
+            65,
+            66,
+            63,
+            64
           ],
           "name": "InputEnergyChargeWh",
           "realname": "Input Energy Charge (Wh)",
@@ -457,10 +457,10 @@
         },
         {
           "position": [
-            71,
-            72,
-            69,
-            70
+            65,
+            66,
+            63,
+            64
           ],
           "name": "InputEnergyChargeKWh",
           "realname": "Input Energy Charge (KWh)",
@@ -470,8 +470,8 @@
         },
         {
           "position": [
-            73,
-            74
+            67,
+            68
           ],
           "name": "InputEnergyChargeToday",
           "realname": "Input Energy Charge Today",
