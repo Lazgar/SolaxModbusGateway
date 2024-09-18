@@ -18,7 +18,7 @@ modbus::modbus() : enableRelays(false), Baudrate(19200), enableCrcCheck(true), e
 
   InverterType        = {};
 
-  ReadQueue = new ArduinoQueue<std::vector<byte>>(5); // max 5 read requests parallel
+  ReadQueue = new ArduinoQueue<std::vector<byte>>(10); // max 5 read requests parallel
   SetQueue  = new ArduinoQueue<std::vector<byte>>(5); // max 5 set requests parallel
 
   if (Config->GetUseETH()) {
