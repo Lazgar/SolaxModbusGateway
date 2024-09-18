@@ -264,43 +264,47 @@
           "mapping": [
             [
               0,
-              "WaitMode"
+              "Waiting"
             ],
             [
               1,
-              "CheckMode"
+              "Checking"
             ],
             [
               2,
-              "NormalMode"
+              "Normal"
             ],
             [
               3,
-              "FaultMode"
+              "Fault"
             ],
             [
               4,
-              "PermanentFaultMode"
+              "Permanent Fault"
             ],
             [
               5,
-              "UpdateMode"
+              "Update"
             ],
             [
               6,
-              "EPSCheckMode"
+              "Off-Grid Waiting"
             ],
             [
               7,
-              "EPSMode"
+              "Off-Grid"
             ],
             [
               8,
-              "SelfTest"
+              "Self Testing"
             ],
             [
               9,
-              "IdleMode"
+              "Idle"
+            ],
+            [
+              10,
+              "Standby"
             ]
           ]
         },
