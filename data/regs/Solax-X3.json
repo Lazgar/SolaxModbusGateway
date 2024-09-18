@@ -1,8 +1,9 @@
 {
   "Solax-X3": {
     "config": {
-      "author": "",
+      "author": "Lazgar",
       "RequestLiveData": [
+        "comment": "Register 0x0003 - 0x0023"
         [
           "#ClientID",
           "0x04",
@@ -11,6 +12,7 @@
           "0x00",
           "0x78"
         ],
+        "comment": "Register 0xtbd - 0xtbd"
         [
           "#ClientID",
           "0x04",
@@ -19,6 +21,7 @@
           "0x00",
           "0x77"
         ],
+        "comment": "Register 0xtbd - 0xtbd"
         [
           "#ClientID",
           "0x03",
@@ -27,6 +30,7 @@
           "0x00",
           "0x26"
         ],
+        "comment": "Register 0xtbd - 0xtbd"
         [
           "#ClientID",
           "0x03",
@@ -35,6 +39,7 @@
           "0x00",
           "0x02"
         ],
+        "comment": "Register 0xtbd - 0xtbd"
         [
           "#ClientID",
           "0x03",
@@ -70,135 +75,6 @@
     },
     "data": {
       "livedata": [
-        {
-          "position": [
-            215,
-            216
-          ],
-          "name": "GridVoltage_L1",
-          "realname": "Grid Voltage L1",
-          "datatype": "float",
-          "factor": 0.1,
-          "unit": "V"
-        },
-        {
-          "position": [
-            217,
-            218
-          ],
-          "name": "GridCurrent_L1",
-          "realname": "Grid Current L1",
-          "datatype": "float",
-          "factor": 0.1,
-          "unit": "A"
-        },
-        {
-          "position": [
-            219,
-            220
-          ],
-          "name": "GridPower_L1",
-          "realname": "Grid Power L1",
-          "datatype": "integer",
-          "unit": "W"
-        },
-        {
-          "position": [
-            221,
-            222
-          ],
-          "name": "GridFrequency_L1",
-          "realname": "Grid Frequency L1",
-          "datatype": "float",
-          "factor": 0.01,
-          "unit": "Hz"
-        },
-        {
-          "position": [
-            223,
-            224
-          ],
-          "name": "GridVoltage_L2",
-          "realname": "Grid Voltage L2",
-          "datatype": "float",
-          "factor": 0.1,
-          "unit": "V"
-        },
-        {
-          "position": [
-            225,
-            226
-          ],
-          "name": "GridCurrent_L2",
-          "realname": "Grid Current L2",
-          "datatype": "float",
-          "factor": 0.1,
-          "unit": "A"
-        },
-        {
-          "position": [
-            227,
-            228
-          ],
-          "name": "GridPower_L2",
-          "realname": "Grid Power L2",
-          "datatype": "integer",
-          "unit": "W"
-        },
-        {
-          "position": [
-            229,
-            230
-          ],
-          "name": "GridFrequency_L2",
-          "realname": "Grid Frequency L2",
-          "datatype": "float",
-          "factor": 0.01,
-          "unit": "Hz"
-        },
-        {
-          "position": [
-            231,
-            232
-          ],
-          "name": "GridVoltage_L3",
-          "realname": "Grid Voltage L3",
-          "datatype": "float",
-          "factor": 0.1,
-          "unit": "V"
-        },
-        {
-          "position": [
-            233,
-            234
-          ],
-          "name": "GridCurrent_L3",
-          "realname": "Grid Current L3",
-          "datatype": "float",
-          "factor": 0.1,
-          "unit": "A"
-        },
-        {
-          "position": [
-            235,
-            236
-          ],
-          "name": "GridPower_L3",
-          "realname": "Grid Power L3",
-          "datatype": "integer",
-          "unit": "W"
-        },
-        {
-          "position": [
-            237,
-            238
-          ],
-          "name": "GridFrequency_L3",
-          "realname": "Grid Frequency L3",
-          "datatype": "float",
-          "factor": 0.01,
-          "unit": "Hz"
-        },
         {
           "position": [
             3,
