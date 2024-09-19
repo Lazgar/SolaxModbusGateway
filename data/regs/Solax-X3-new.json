@@ -620,7 +620,167 @@
           "realname": "Off Grid Power L3",
           "datatype": "integer",
           "unit": "W"
-        }
+        },
+                {
+                    "position": [
+                        155,
+                        156,
+                        153,
+                        154
+                    ],
+                    "name": "FeedInPowerPhase_L1",
+                    "realname": "FeedIn Power Phase L1",
+                    "datatype": "integer",
+                    "unit": "W"
+                },
+                {
+                    "position": [
+                        159,
+                        160,
+                        157,
+                        158
+                    ],
+                    "name": "FeedInPowerPhase_L2",
+                    "realname": "FeedIn Power Phase L2",
+                    "datatype": "integer",
+                    "unit": "W"
+                },
+                {
+                    "position": [
+                        163,
+                        164,
+                        161,
+                        162
+                    ],
+                    "name": "FeedInPowerPhase_L3",
+                    "realname": "FeedIn Power Phase L3",
+                    "datatype": "integer",
+                    "unit": "W"
+                },
+                {
+                    "position": [
+                        167,
+                        168,
+                        165,
+                        166
+                    ],
+                    "name": "OnGridRunTime",
+                    "realname": "OnGrid RunTime",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "h"
+                },
+                {
+                    "position": [
+                        171,
+                        172,
+                        169,
+                        170
+                    ],
+                    "name": "OffGridRunTime",
+                    "realname": "OffGrid RunTime",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "h"
+                },
+                {
+                    "position": [
+                        179,
+                        180,
+                        177,
+                        178
+                    ],
+                    "name": "OffGridYieldTotal",
+                    "realname": "OffGrid Yield Total",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        181,
+                        182
+                    ],
+                    "name": "OffGridYieldToday",
+                    "realname": "OffGrid Yield Today",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        183,
+                        184
+                    ],
+                    "name": "EChargeToday",
+                    "realname": "ECharge Today",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        187,
+                        188,
+                        185,
+                        186
+                    ],
+                    "name": "EChargeTotal",
+                    "realname": "ECharge Total",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        191,
+                        192,
+                        189,
+                        190
+                    ],
+                    "name": "SolarEnergyTotal",
+                    "realname": "SolarEnergy Total",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        193,
+                        194
+                    ],
+                    "name": "SolarEnergyToday",
+                    "realname": "SolarEnergy Today",
+                    "datatype": "float",
+                    "factor": 0.1,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        197,
+                        198,
+                        195,
+                        196
+                    ],
+                    "name": "EnergyFeedin",
+                    "realname": "EnergyFeedin Today",
+                    "datatype": "float",
+                    "factor": 0.01,
+                    "unit": "kWh"
+                },
+                {
+                    "position": [
+                        201,
+                        202,
+                        199,
+                        200
+                    ],
+                    "name": "EnergyConsum",
+                    "realname": "EnergyConsum Today",
+                    "datatype": "float",
+                    "factor": 0.01,
+                    "unit": "kWh"
+                }
       ],
       "id": [
         {
