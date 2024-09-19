@@ -685,10 +685,10 @@
                 },
                 {
                     "position": [
-                        187,
-                        188,
                         185,
-                        186
+                        186,
+                        183,
+                        184
                     ],
                     "name": "OffGridYieldTotal",
                     "realname": "OffGrid Yield Total",
@@ -698,8 +698,8 @@
                 },
                 {
                     "position": [
-                        189,
-                        190
+                        187,
+                        188
                     ],
                     "name": "OffGridYieldToday",
                     "realname": "OffGrid Yield Today",
@@ -709,8 +709,8 @@
                 },
                 {
                     "position": [
-                        191,
-                        192
+                        189,
+                        190
                     ],
                     "name": "EChargeToday",
                     "realname": "ECharge Today",
@@ -720,10 +720,10 @@
                 },
                 {
                     "position": [
-                        195,
-                        196,
                         193,
-                        194
+                        194,
+                        191,
+                        192
                     ],
                     "name": "EChargeTotal",
                     "realname": "ECharge Total",
@@ -733,10 +733,10 @@
                 },
                 {
                     "position": [
-                        199,
-                        200,
                         197,
-                        198
+                        198,
+                        195,
+                        196
                     ],
                     "name": "SolarEnergyTotal",
                     "realname": "SolarEnergy Total",
@@ -746,8 +746,8 @@
                 },
                 {
                     "position": [
-                        201,
-                        202
+                        199,
+                        200
                     ],
                     "name": "SolarEnergyToday",
                     "realname": "SolarEnergy Today",
@@ -757,10 +757,10 @@
                 },
                 {
                     "position": [
-                        205,
-                        206,
                         203,
-                        204
+                        204,
+                        201,
+                        202
                     ],
                     "name": "EnergyFeedin",
                     "realname": "EnergyFeedin Today",
@@ -770,10 +770,10 @@
                 },
                 {
                     "position": [
-                        209,
-                        210,
                         207,
-                        208
+                        218,
+                        205,
+                        206
                     ],
                     "name": "EnergyConsum",
                     "realname": "EnergyConsum Today",
