@@ -177,7 +177,7 @@
             18
           ],
           "name": "PvPower1",
-          "realname": "PV Power 1",
+          "realname": "Pv Power 1",
           "datatype": "integer",
           "openwbtopic": "openWB/set/pv/1/W",
           "unit": "W"
@@ -188,7 +188,7 @@
             20
           ],
           "name": "PvPower2",
-          "realname": "PV Power 2",
+          "realname": "Pv Power 2",
           "datatype": "integer",
           "openwbtopic": "openWB/set/pv/2/W",
           "unit": "W"
