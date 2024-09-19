@@ -37,12 +37,14 @@
                 ]
             ],
             "RequestIdData": [
-                "#ClientID",
-                "0x03",
-                "0x00",
-                "0x00",
-                "0x00",
-                "0x07"
+                [
+                    "#ClientID",
+                    "0x03",
+                    "0x00",
+                    "0x00",
+                    "0x00",
+                    "0x07"
+                ]
             ],
             "ClientIdPos": 0,
             "LiveDataFunctionCodePos": 1,
