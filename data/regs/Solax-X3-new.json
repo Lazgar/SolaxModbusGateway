@@ -757,10 +757,10 @@
                 },
                 {
                     "position": [
+                        205,
+                        206,
                         203,
-                        204,
-                        201,
-                        202
+                        204
                     ],
                     "name": "EnergyFeedin",
                     "realname": "EnergyFeedin Today",
@@ -770,10 +770,10 @@
                 },
                 {
                     "position": [
+                        209,
+                        210,
                         207,
-                        218,
-                        205,
-                        206
+                        208
                     ],
                     "name": "EnergyConsum",
                     "realname": "EnergyConsum Today",
