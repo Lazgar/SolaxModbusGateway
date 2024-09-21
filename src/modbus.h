@@ -122,7 +122,7 @@ class modbus {
     ArduinoQueue<std::vector<byte>>* SetQueue;
 
     std::vector<std::vector<byte>>*  Conf_RequestLiveData;
-    std::vector<byte>*      Conf_RequestIdData;
+    std::vector<std::vector<byte>>*  Conf_RequestIdData;
 		uint8_t                 Conf_ClientIdPos;
     //uint8_t                 Conf_LiveDataStartsAtPos;
 		//uint8_t                 Conf_IdDataStartsAtPos;
