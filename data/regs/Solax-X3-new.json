@@ -43,7 +43,23 @@
                     "0x00",
                     "0x00",
                     "0x00",
-                    "0x07"
+                    "0x10"
+                ],
+                [
+                    "#ClientID",
+                    "0x03",
+                    "0x00",
+                    "0xba",
+                    "0x00",
+                    "0x01"
+                ],
+                [
+                    "#ClientID",
+                    "0x03",
+                    "0x01",
+                    "0x05",
+                    "0x00",
+                    "0x03"
                 ]
             ],
             "ClientIdPos": 0,
@@ -835,6 +851,121 @@
                     "name": "InverterSN",
                     "realname": "Inverter SerialNumber",
                     "datatype": "string"
+                },
+                {
+                    "position": [
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32
+                    ],
+                    "name": "InverterManufactor",
+                    "realname": "Inverter Manufacter",
+                    "datatype": "string"
+                },
+                {
+                    "position": [
+                        40,
+                        41
+                    ],
+                    "name": "InverterPowerType",
+                    "realname": "Inverter Power Type",
+                    "datatype": "string",
+                    "mapping": [
+                        [
+                            15000,
+                            "15k"
+                        ],
+                        [
+                            12000,
+                            "12k"
+                        ],
+                        [
+                            10000,
+                            "10k"
+                        ],
+                        [
+                            8000,
+                            "8k"
+                        ],
+                        [
+                            6000,
+                            "6k"
+                        ],
+                        [
+                            5000,
+                            "5k"
+                        ]
+                    ]
+                },
+                {
+                    "position": [
+                        47,
+                        48
+                    ],
+                    "name": "InverterMachineType",
+                    "realname": "Inverter Machine Type",
+                    "datatype": "string",
+                    "mapping": [
+                        [
+                            1,
+                            "X1"
+                        ],
+                        [
+                            3,
+                            "X3"
+                        ]
+                    ]
+                },
+                {
+                    "position": [
+                        47,
+                        48
+                    ],
+                    "name": "InverterPowerType",
+                    "realname": "Inverter Power Type",
+                    "datatype": "string",
+                    "mapping": [
+                        [
+                            1,
+                            "X1"
+                        ],
+                        [
+                            3,
+                            "X3"
+                        ]
+                    ]
+                },
+                {
+                    "position": [
+                        51,
+                        52
+                    ],
+                    "name": "InverterMachineStyle",
+                    "realname": "Inverter Machine Style",
+                    "datatype": "string",
+                    "mapping": [
+                        [
+                            0,
+                            "X-Hybrid"
+                        ],
+                        [
+                            1,
+                            "X-FIT"
+                        ]
+                    ]
                 }
             ]
         },
@@ -845,7 +976,7 @@
                     "#ClientID",
                     "0x06",
                     "0x00",
-                    "0x1F"
+                    "0x11"
                 ]
             },
             {
@@ -885,7 +1016,8 @@
                 ]
             }
         ]
-    },
+    }
+},
     "Solax-X3-PRO": {
         "config": {
             "author": "MagicSven81",
