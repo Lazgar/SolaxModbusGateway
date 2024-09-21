@@ -14,11 +14,11 @@ modbus::modbus() : enableRelays(false), Baudrate(19200), enableCrcCheck(true), e
   Setters             = new std::vector<subscription_t>{};
 
   Conf_RequestLiveData= new std::vector<std::vector<byte>>{};
-  Conf_RequestIdData  = new std::vector<byte>{};
+  Conf_RequestIdData  = new std::vector<std::vector<byte>>{};
 
   InverterType        = {};
 
-  ReadQueue = new ArduinoQueue<std::vector<byte>>(10); // max 5 read requests parallel
+  ReadQueue = new ArduinoQueue<std::vector<byte>>(5); // max 5 read requests parallel
   SetQueue  = new ArduinoQueue<std::vector<byte>>(5); // max 5 set requests parallel
 
   if (Config->GetUseETH()) {
@@ -281,12 +281,17 @@ void modbus::LoadInverterConfigFromJson() {
   }
   
   Conf_RequestIdData->clear();
-  for (String elem : doc[this->InverterType.name]["config"]["RequestIdData"].as<JsonArray>()) {
-    byte e = this->String2Byte(elem);
-    Conf_RequestIdData->push_back(e);
-  }
-  Conf_RequestIdData->push_back(DATAISID); // last byte is datatype
+  for (JsonArray arr : doc[this->InverterType.name]["config"]["RequestIdData"].as<JsonArray>()) {
 
+    std::vector<byte> t = {};
+    for (String x : arr) {
+      byte e = this->String2Byte(x);
+      t.push_back(e);
+    }
+    t.push_back(DATAISID); // last byte is datatype
+    Conf_RequestIdData->push_back(t);
+  }
+  
   if (regfile) { regfile.close(); }
 
 }
@@ -318,7 +323,7 @@ void modbus::enableMqtt(MQTT* object) {
  * Query ID Data to Inverter
 *******************************************************/
 void modbus::QueryIdData() {
-  if (Config->GetDebugLevel() >=4) {dbg.println("Query ID Data into Queue:");}
+  if (Config->GetDebugLevel() >=4) {dbg.println("Query ID Data into Queue:"); }
   
   /* byte message[] = {this->ClientID, 
                                0x03,  // FunctionCode
@@ -332,11 +337,12 @@ void modbus::QueryIdData() {
   */
 
   if (this->ReadQueue->isEmpty()) {
-    if (Config->GetDebugLevel() >=4) { dbg.println(this->PrintDataFrame(this->Conf_RequestIdData).c_str()); }
-    this->ReadQueue->enqueue(*this->Conf_RequestIdData);
+    for (uint8_t i = 0; i < this->Conf_RequestIdData->size(); i++) {
+      if (Config->GetDebugLevel() >=4) { dbg.println(this->PrintDataFrame(&this->Conf_RequestIdData->at(i)).c_str()); }
+      this->ReadQueue->enqueue(this->Conf_RequestIdData->at(i));
+    }
   }
 }
-
 
 /*******************************************************
  * Query Live Data to Inverter
