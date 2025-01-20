@@ -13,7 +13,7 @@
 #include <sstream>
 #include <openwb.h>
 
-//#define DEBUGMODE
+#define DEBUGMODE
 
 class modbus {
 
@@ -52,16 +52,18 @@ class modbus {
 
     const String&           GetInverterType()   const {return InverterType.name;}
     const String            GetOpenWbVersion()  const {return Conf_OpenWBVersion;}
-
     void                    enableMqtt(MQTT* object);
-    void                    GetInitData(AsyncResponseStream *response);
-    void                    GetInitRawData(AsyncResponseStream *response);
+    void                    GetInitData(JsonDocument& json);
+    void                    GetInitRawData(JsonDocument& json);
     String                  GetInverterSN();
-
-    void                    GetLiveDataAsJson(AsyncWebServerRequest *request);
-    void                    GetRegisterAsJson(AsyncResponseStream *response);
+    void                    GetLiveDataAsJsonToWebServer(AsyncWebServerRequest *request);
+    void                    GetRegisterAsJsonToWebServer(AsyncResponseStream *response);
     void                    SetItemActiveStatus(String item, bool newstate);
     void                    ReceiveMQTT(String topic, int msg);
+
+    // Callback setzen
+    void setWebSocketCallback(std::function<void(String&)> callback);
+    void deleteWebSocketCallback() { webSocketCallback = nullptr; }
 
   private:
     uint8_t                 pin_RX;               // Serial Receive pin
@@ -122,6 +124,7 @@ class modbus {
     String                  MapBitwise(JsonArray map, String value);
     String                  ConvertIntToBinaryString(int n, int numBits);
     void                    ReadRelays();
+    void                    SendDataToWebSocket(std::vector<reg_t>* vector);
 
     // inverter config, in sync with register.h ->config
     ArduinoQueue<std::vector<byte>>* ReadQueue;
@@ -129,6 +132,9 @@ class modbus {
 
     std::vector<std::vector<byte>>*  Conf_RequestLiveData;
     std::vector<std::vector<byte>>*  Conf_RequestIdData;
+
+    std::function<void(String&)> webSocketCallback; // Callback-Funktion
+
 		uint8_t                 Conf_ClientIdPos;
     //uint8_t                 Conf_LiveDataStartsAtPos;
 		//uint8_t                 Conf_IdDataStartsAtPos;
