@@ -1,3 +1,7 @@
+/********************************************************
+ * Copyright [2024] Tobias Faust <tobias.faust@gmx.net 
+ ********************************************************/
+
 #include "MyWebServer.h"
 
 MyWebServer::MyWebServer(AsyncWebServer *server, DNSServer* dns): 
@@ -13,8 +17,10 @@ MyWebServer::MyWebServer(AsyncWebServer *server, DNSServer* dns):
   server->on("/",                       HTTP_GET, std::bind(&MyWebServer::handleRoot, this, std::placeholders::_1));
    
   server->on("/favicon.ico",            HTTP_GET, std::bind(&MyWebServer::handleFavIcon, this, std::placeholders::_1));
-  server->on("/getitems",               HTTP_GET, std::bind(&MyWebServer::handleGetItemJson, this, std::placeholders::_1));
-  server->on("/getregister",            HTTP_GET, std::bind(&MyWebServer::handleGetRegisterJson, this, std::placeholders::_1));
+  server->on("/getitems",               HTTP_GET, [&](AsyncWebServerRequest *request){ mb->GetLiveDataAsJsonToWebServer(request); });
+  //server->on("/getregister",            HTTP_GET, std::bind(&MyWebServer::handleGetRegisterJson, this, std::placeholders::_1)); // deprecated, not longer in use
+  server->on("/getsetter",              HTTP_GET, [&](AsyncWebServerRequest *request){ mb->GetSettersAsJsonToWebServer(request); });
+
 
   ws->onEvent(std::bind(&MyWebServer::onWsEvent, this, std::placeholders::_1, 
                                                        std::placeholders::_2, 
@@ -24,7 +30,7 @@ MyWebServer::MyWebServer(AsyncWebServer *server, DNSServer* dns):
                                                        std::placeholders::_6 ));
 
   server->addHandler(ws);
-
+  
   ElegantOTA.begin(server);    // Start ElegantOTA
   ElegantOTA.setGitEnv(String(GIT_OWNER), String(GIT_REPO), String(GIT_BRANCH));
   ElegantOTA.setFWVersion(String(Config->GetReleaseName() + " / Build: " + GITHUB_RUN ));
@@ -94,8 +100,8 @@ void MyWebServer::onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * clie
         if (json["cmd"]["action"])   {action    = json["cmd"]["action"].as<String>();}
         if (json["cmd"]["subaction"]){subaction = json["cmd"]["subaction"].as<String>();}
         if (json["cmd"]["item"])     {item      = json["cmd"]["item"].as<String>();}
+        if (json["cmd"]["newState"]) {newState  = (json["cmd"]["newState"].as<String>() == "true"?true:false);}
         
-        newState  = json["cmd"]["newState"].as<bool>();
       }
 
       if (action == "GetItemsAsStream") {
@@ -159,8 +165,7 @@ void MyWebServer::onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * clie
       }
 
       if (action && action == "SetActiveStatus") {
-        if (newState)  mb->SetItemActiveStatus(item, true); 
-        else mb->SetItemActiveStatus(item, false);    
+        mb->SetItemActiveStatus(item, newState);    
         
         json["response"]["status"] = 1;
         json["response"]["text"] = String("item successfully set to " + String(newState ? "active" : "inactive"));
@@ -254,10 +259,6 @@ bool MyWebServer::handleReset() {
   return ret;
 }
 
-void MyWebServer::handleGetItemJson(AsyncWebServerRequest *request) {
-  mb->GetLiveDataAsJsonToWebServer(request);
-}
-
 void MyWebServer::handleGetRegisterJson(AsyncWebServerRequest *request) {
   AsyncResponseStream *response = request->beginResponseStream("application/json");
   response->addHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -265,54 +266,7 @@ void MyWebServer::handleGetRegisterJson(AsyncWebServerRequest *request) {
   response->addHeader("Expires", "-1");
   
   mb->GetRegisterAsJsonToWebServer(response);
-
   request->send(response);  
-}
-
-void MyWebServer::GetInitDataNavi(AsyncResponseStream *response){
-  String ret;
-  JsonDocument json;
-  json["data"].to<JsonObject>();
-  json["data"]["hostname"] = Config->GetMqttRoot();
-  json["data"]["releasename"] = Config->GetReleaseName();
-  json["data"]["releasedate"] = __DATE__;
-  json["data"]["releasetime"] = __TIME__;
-
-  json["response"].to<JsonObject>();
-  json["response"]["status"] = 1;
-  json["response"]["text"] = "successful";
-  serializeJson(json, ret);
-  response->print(ret);
-}
-
-void MyWebServer::GetInitDataStatus(AsyncResponseStream *response) {
-  String ret;
-  JsonDocument json;
-  String rssi = (String)(Config->GetUseETH()?ETH.linkSpeed():WiFi.RSSI());
-  if (Config->GetUseETH()) rssi.concat(" Mbps");
-
-  json["data"].to<JsonObject>();
-  json["data"]["ipaddress"] = mqtt->GetIPAddress().toString();
-  json["data"]["wifiname"] = (Config->GetUseETH()?"wired LAN":WiFi.SSID());
-  json["data"]["macaddress"] = WiFi.macAddress();
-  json["data"]["rssi"] = rssi;
-  json["data"]["bssid"] = (Config->GetUseETH()?"wired LAN":WiFi.BSSIDstr());
-  json["data"]["mqtt_status"] = (mqtt->GetConnectStatusMqtt()?"Connected":"Not Connected");
-  json["data"]["inverter_type"] = mb->GetInverterType();
-  json["data"]["inverter_serial"] = mb->GetInverterSN();
-  json["data"]["uptime"] = uptime_formatter::getUptime();
-  json["data"]["freeheapmem"] = ESP.getFreeHeap();
-
-  #ifndef USE_WEBSERIAL
-    json["data"]["tr_webserial"]["className"] = "hide";
-  #endif
-
-  json["response"].to<JsonObject>();
-  json["response"]["status"] = 1;
-  json["response"]["text"] = "successful";
-
-  serializeJson(json, ret);
-  response->print(ret);
 }
 
 void MyWebServer::GetInitDataNavi(JsonDocument& json) {

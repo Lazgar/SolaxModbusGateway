@@ -62,6 +62,42 @@
           </template>
         </tbody>
       </table>
+      <br>
+
+      <div id="setterDeactive" class="needToSave hide" style="border: grey 1px solid;">
+        <i class="fa fa-info-circle" style="color: green; font-size: 15px;"></i>
+        <span style="font-size: 60%;">Set commands deactivated</span>
+      </div>
+
+      <div id="setterNa" class="needToSave hide" style="border: grey 1px solid;">
+        <i class="fa fa-info-circle" style="color: green; font-size: 15px;"></i>
+        <span style="font-size: 60%;">no Set commands available</span>
+      </div>
+
+      <table id='settable' class='editorDemoTable hide'>
+        <thead>
+          <tr>
+            <td style='width: 25px;'>Active</td>
+            <td style='width: 180px;'>Name</td>
+            <td style='width: 358px;'>Subscription</td>
+          </tr>
+        </thead>
+        <tbody>
+          <template id='setitems'>
+          <tr>
+            <td>
+              <input type='checkbox' onclick='ChangeActiveStatus(this.id)' id='active'>
+            </td>
+            <td>
+              <dfn class='tooltip_simple'><span id='realname'></span>
+                <span id='info' role='tooltip_simple'></span>
+              </dfn>
+            </td>
+            <td id='subscription'></td>
+          </tr>
+          </template>
+        </tbody>
+      </table>
     </form>
     <br />
     <br/>

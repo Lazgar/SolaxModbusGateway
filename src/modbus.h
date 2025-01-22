@@ -1,3 +1,7 @@
+/********************************************************
+ * Copyright [2024] Tobias Faust <tobias.faust@gmx.net 
+ ********************************************************/
+
 #ifndef SOLAXMODBUS_H
 #define SOLAXMODBUS_H
 
@@ -27,9 +31,9 @@ class modbus {
   } reg_t;
 
   typedef struct {
-    String command = "";
-    std::vector<byte> request; 
-  } subscription_t;
+    String Name;
+    bool active = false;
+  } setter_t;
 
   // available inverter register json files
   typedef struct {
@@ -47,6 +51,7 @@ class modbus {
     void                    init(bool firstrun);
     void                    LoadJsonConfig(bool firstrun);
     void                    LoadJsonItemConfig();
+    void                    LoadJsonItemConfig(bool loadLiveData, bool loadIdData, bool loadSetters);
 
     void                    loop();
 
@@ -57,9 +62,11 @@ class modbus {
     void                    GetInitRawData(JsonDocument& json);
     String                  GetInverterSN();
     void                    GetLiveDataAsJsonToWebServer(AsyncWebServerRequest *request);
+    void                    GetSettersAsJsonToWebServer(AsyncWebServerRequest *request);
     void                    GetRegisterAsJsonToWebServer(AsyncResponseStream *response);
     void                    SetItemActiveStatus(String item, bool newstate);
-    void                    ReceiveMQTT(String topic, int msg);
+    void                    ReceiveMQTT(String topic, String msg);
+    JsonDocument            GetSetterByName(String name);
 
     // Callback setzen
     void setWebSocketCallback(std::function<void(String&)> callback);
@@ -96,8 +103,8 @@ class modbus {
     std::vector<byte>*      DataFrame;            // storing read results as hexdata to parse
     std::vector<reg_t>*     InverterIdData;       // storing readable results
     std::vector<reg_t>*     InverterLiveData;     // storing readable results
-    std::vector<regfiles_t>*AvailableInverters;   // available inverters from JSON
-    std::vector<subscription_t>* Setters;         // available set Options from JSON register 
+    std::vector<regfiles_t>* AvailableInverters;   // available inverters from JSON
+    std::vector<setter_t>* Setters;         // available set Options from JSON register 
 
     MQTT*                   mqtt = NULL;
     openwb*                 OpenWB = NULL;
@@ -116,7 +123,7 @@ class modbus {
     void                    ParseData();
     void                    LoadInvertersFromJson();
     void                    LoadInverterConfigFromJson();
-    void                    GenerateMqttSubscriptions();
+    void                    LoadSettersFromRegFile();
     String                  GetMqttSetTopic(String command);
     void                    ChangeRegItem(std::vector<reg_t>* vector, reg_t item);
     void                    LoadRegItems(std::vector<reg_t>* vector, String type);
