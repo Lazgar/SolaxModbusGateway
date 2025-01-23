@@ -79,7 +79,7 @@
           <tr>
             <td style='width: 25px;'>Active</td>
             <td style='width: 180px;'>Name</td>
-            <td style='width: 358px;'>Subscription</td>
+            <td style='width: 358px;'>MQTT Topic</td>
           </tr>
         </thead>
         <tbody>
@@ -89,11 +89,12 @@
               <input type='checkbox' onclick='ChangeActiveStatus(this.id)' id='active'>
             </td>
             <td>
-              <dfn class='tooltip_simple'><span id='realname'></span>
-                <span id='info' role='tooltip_simple'></span>
+              <span id='realname'></span>
+            </td>
+            <td>
+              <span id='subscription'></span>
               </dfn>
             </td>
-            <td id='subscription'></td>
           </tr>
           </template>
         </tbody>

@@ -23,14 +23,11 @@ export function init1() {
   global.handleJsonItems(data);
 
 
-  data = {"globalEnabled": "1",  "data": {"setitems": [{"name": "setUnlockSettings","realname": "Unlock Settings","active": {"checked": 0, "name": "setUnlockSettings"},"subscription": "home/Solax-Test/set/setUnlockSettings","info": "send the 4 digit advanced password"},
-    {"name": "setTargetBatSOC","realname": "Target SoC","active": {"checked": 0, "name": "setTargetBatSOC"},"subscription": "home/Solax-Test/set/setTargetBatSOC","info": "set 0 - 100 in percent"} , 
-    {"name": "setOperationMode","realname": "Operation Mode","active": {"checked": 0, "name": "setOperationMode"},"subscription": "home/Solax-Test/set/setOperationMode","info": {"data-mapping": "[[ 'Self-Use', 0],['FeedInPriority', 1],['BackupMode',2],['ManuelMode',3],['PeakShaving',4],[ 'TUOMode', 5 ]]", "innerHTML": "set inverter operation mode"}}
-    ]},
-    "object_id": "home/Solax-Test", "response": {"status": 1, "text": "successful"},
+  data = {"globalEnabled": "1",  "data": {"setitems": [{"name": "setUnlockSettings","realname": "Unlock Settings","active": {"checked": 0, "name": "setUnlockSettings"},"info": "send the 4 digit advanced password","subscription": "home/Solax/set/setUnlockSettings"},{"name": "setTargetBatSOC","realname": "Target SoC","active": {"checked": 0, "name": "setTargetBatSOC"},"info": "set battery SOC: 0 - 100 in percent","subscription": "home/Solax/set/setTargetBatSOC"},{"name": "setOperationMode","realname": "Operation Mode","active": {"checked": 0, "name": "setOperationMode"},"info": "setting of 6 possible operation modes","subscription": "home/Solax/set/setOperationMode","mapping": {"data-mapping": "[['SelfUse',0],['FeedInPriority',1],['BackupMode',2],['ManuelMode',3],['PeakShaving',4],['TUOMode',5]]"}} ]}, 
+  "object_id": "home/Solax",
     "cmd": {
       "callbackFn": "mbitemconfig_SetterCallback"
-    }}
+    }} 
   global.handleJsonItems(data);
 
 
@@ -55,15 +52,6 @@ export function init() {
       global.handleJsonItems(data);
     })
     .catch(error => console.error('Error fetching items:', error));
-
-  fetch('/getsetter')
-    .then(response => response.json())
-    .then(data => {
-      data['cmd'] = {};
-      data['cmd']['callbackFn'] = "mbitemconfig_SetterCallback";
-      global.handleJsonItems(data);
-    })
-    .catch(error => console.error('Error fetching setters:', error));
 
   fetch('/getsetter')
     .then(response => response.json())
@@ -121,7 +109,7 @@ function MySetterCallback(json) {
     document.getElementById("settable").classList.remove("hide");
   }
 
-  // handle data-mapping and add them to info field
+  // handle data-mapping and add them to topic as tooltip
   document.querySelectorAll('[data-mapping]').forEach(element => {
     try {
       const mapping = JSON.parse(element.getAttribute('data-mapping').replace(/'/g, '"'));
@@ -130,15 +118,39 @@ function MySetterCallback(json) {
       
       for (var i = 0; i < mapping.length; i++) {
         if (info.length > 0) info += "<br>"; 
-        info += mapping[i][0];
+        info += "- " + mapping[i][0];
       }
-      obj.innerHTML += "<br>" + info;
+      
+      info = "possible values:<br><hr>" + info;
+      createTooltip(obj, info);
+
     } catch (e) {
       console.error('Invalid JSON:', e);
     }
   });
+
+  // handle data-info and add them to realname as tooltip
+  document.querySelectorAll('[data-info]').forEach(element => {
+    const info = element.getAttribute('data-info');
+    const obj = document.getElementById(element.id);
+      
+    createTooltip(obj, info);
+  });
 }
- 
+
+// ************************************************
+function createTooltip(obj, tooltip) {
+  var dfn = document.createElement('dfn');
+  dfn.classList.add('tooltip_simple');
+  obj.parentNode.replaceChild(dfn, obj);
+  dfn.appendChild(obj);
+
+  var span = document.createElement('span');
+  span.setAttribute('role', 'tooltip_simple');
+  span.innerHTML = tooltip;
+  dfn.appendChild(span);
+}
+
 // ************************************************
 function RefreshLiveData() {
   var data = {};

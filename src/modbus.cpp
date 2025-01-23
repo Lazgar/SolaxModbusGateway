@@ -1259,11 +1259,16 @@ void modbus::GetSettersAsJsonToWebServer(AsyncWebServerRequest *request) {
             String mapping = elem["mapping"].as<String>(); mapping.replace("\"", "'");
             
             ret += "{\"name\": \"" + elem["name"].as<String>() + "\",";
-            ret += "\"realname\": \"" + elem["realname"].as<String>() + "\",";
+            
+            ret += "\"realname\": {\"innerHTML\": \"" + elem["realname"].as<String>() + "\"";
+            if (elem["info"])     ret += ", \"data-info\": \"" + elem["info"].as<String>() + "\"";
+            ret += "},";
+            
             ret += "\"active\": {\"checked\": " + String(isActive ? 1 : 0) + ", \"name\": \"" + elem["name"].as<String>() + "\"},";
-            ret += "\"subscription\": \"" + this->GetMqttSetTopic(elem["name"].as<String>()) + "\",";
-            ret += "\"info\": {\"data-mapping\": \""+ mapping + "\", \"innerHTML\": \"" + elem["info"].as<String>() + "\"}";            
-            ret += "}";
+            
+            ret += "\"subscription\": {\"innerHTML\": \"" + this->GetMqttSetTopic(elem["name"].as<String>()) + "\"";
+            if (elem["mapping"])  ret += ", \"data-mapping\": \""+ mapping + "\"";             
+            ret += "}}";
           }
         }
 
