@@ -980,6 +980,10 @@ String modbus::MapItem(JsonArray map, String value) {
     String v1 = mapItem[0].as<String>();
     String v2 = mapItem[1].as<String>();
 
+    v1.toLowerCase();
+    v2.toLowerCase();
+    value.toLowerCase();
+
     if (value == v1) {
       ret = v2;
       Config->log(4, "Mapped value: %s -> %s", v1.c_str(), v2.c_str());
