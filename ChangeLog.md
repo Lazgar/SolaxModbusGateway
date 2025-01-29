@@ -4,6 +4,7 @@ Release 3.3.2:
   - new feature: show set topics in WebUI (thanks to @laszgar)
   - new feature: add "newUpdate available" info in WebUI header
   - new feature: add toggle buttons at ModbusItems WebUI to change all items at once (#96)
+  - new Inverter: add Growatt-SPH-V124 register file (thanks to @StefanNouza) (#109)
   
 Release 3.3.1:
   - new Feature: datatype "binary" now available for json register definitions (PR #115)
