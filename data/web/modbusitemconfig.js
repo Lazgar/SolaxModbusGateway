@@ -48,7 +48,7 @@ export function init() {
     .then(response => response.json())
     .then(data => {
       data['cmd'] = {};
-      data['cmd']['callbackFn'] = "mbitemconfig_ItemItemCallback";
+      data['cmd']['callbackFn'] = "mbitemconfig_ItemCallback";
       global.handleJsonItems(data);
     })
     .catch(error => console.error('Error fetching items:', error));
@@ -176,3 +176,31 @@ export function ChangeActiveStatus(id) {
 }
 
 // ************************************************
+
+export function setToggleIcon(targetTable, element) {
+  if (element.classList.contains('fa-toggle-off')) {
+    element.classList.remove('fa-toggle-off');
+    element.classList.add('fa-toggle-on');
+    setCheckboxes(targetTable, "true");
+  } else {
+    element.classList.remove('fa-toggle-on');
+    element.classList.add('fa-toggle-off');
+    setCheckboxes(targetTable, false);
+  }
+}
+
+export function setCheckboxes(targetTable, state) {
+  document.querySelectorAll(`#${targetTable} input[type=checkbox]`).forEach(checkbox => {
+    if (typeof state == 'undefined') {
+      //checkbox.checked = !checkbox.checked;
+      checkbox.click();
+    } else if ( typeof state !== 'undefined' && state && !checkbox.checked) {
+      //checkbox.checked = true;
+      checkbox.click();
+    } else if (typeof state !== 'undefined' && !state && checkbox.checked) {
+      //checkbox.checked = false;
+      checkbox.click();
+    }
+  });
+  global.showMustSaveDialog();
+}

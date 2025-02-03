@@ -654,7 +654,7 @@ export function getFormData(formElement) {
 }
 
 /****************************************************************************************
- * Show a dialog if the form data has been changed
+ * Show a dialog if the values of items in formdata has been changed
  * ****************************************************************************************/
 export function showMustSaveDialog() {
   if (document.getElementById('needToSave') && datavalues !== getFormData("DataForm")) {
@@ -665,7 +665,8 @@ export function showMustSaveDialog() {
 }
 
 /****************************************************************************************
- * Initialize the data values in variable "datavalues"
+ * Save the current form data values in the variable "datavalues" to check on every change 
+ * if the form data has been changed. If the form data has been changed, show a dialog.
  * ****************************************************************************************/
 export function initDataValues() {
   datavalues = getFormData("DataForm");

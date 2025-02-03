@@ -10,10 +10,12 @@
 
     <script type='module'>
       import { onSubmit, initDataValues } from './Javascript.js';
-      import { init, ChangeActiveStatus } from './modbusitemconfig.js';
+      import { init, ChangeActiveStatus, setToggleIcon, setCheckboxes } from './modbusitemconfig.js';
       window.ChangeActiveStatus = ChangeActiveStatus;
       window.onSubmit = onSubmit;
       window.initDataValues = initDataValues;
+      window.setToggleIcon = setToggleIcon;
+      window.setCheckboxes = setCheckboxes;
 
       window.addEventListener('DOMContentLoaded', init, false);
     </script>
@@ -30,10 +32,14 @@
     </div>
 
     <form id='DataForm'>
-      <table id='maintable' class='editorDemoTable'>
+      <table id='itemtable' class='editorDemoTable'>
         <thead>
           <tr>
-            <td style='width: 25px;'>Active</td>
+            <td style='width: 50px;'>
+              Active
+              <i class="fa fa-toggle-off" style="color: navy; font-size: 20px;" onclick="setToggleIcon('itemtable', this)"></i>
+              <i class="fa fa-refresh" style="color: navy; font-size: 20px;" onclick="setCheckboxes('itemtable', undefined)"></i>
+            </td>
             <td style='width: 250px;'>Name</td>
             <td style='width: 80px;'>OpenWB</td>
             <td style='width: 200px;'>Wert</td>
@@ -77,7 +83,11 @@
       <table id='settable' class='editorDemoTable hide'>
         <thead>
           <tr>
-            <td style='width: 25px;'>Active</td>
+            <td style='width: 50px;'>
+              Active
+              <i class="fa fa-toggle-off" style="color: navy; font-size: 20px;" onclick="setToggleIcon('settable', this)"></i>
+              <i class="fa fa-refresh" style="color: navy; font-size: 20px;" onclick="setCheckboxes('settable', undefined)"></i>
+            </td>
             <td style='width: 180px;'>Name</td>
             <td style='width: 358px;'>MQTT Topic</td>
           </tr>
