@@ -1,3 +1,6 @@
+Release 3.3.3:
+  - improve logging functionality methods
+
 Release 3.3.2:
   - new feature: add confirmation dialog for ESP reset
   - migrate from old ajax communication to standard websocket communication

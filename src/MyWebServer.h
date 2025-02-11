@@ -49,7 +49,7 @@ class MyWebServer {
     void      handleRoot(AsyncWebServerRequest *request);
     void      handleFavIcon(AsyncWebServerRequest *request);
 //    void      handleGetItemJson(AsyncWebServerRequest *request);
-    void      handleGetRegisterJson(AsyncWebServerRequest *request);
+//    void      handleGetRegisterJson(AsyncWebServerRequest *request);
 //    void      handleGetSetterJson(AsyncWebServerRequest *request);
 //    void      GetInitDataStatus(AsyncResponseStream *response);
 //    void      GetInitDataNavi(AsyncResponseStream *response);
