@@ -195,7 +195,7 @@ void modbus::ReceiveMQTT(String topic, String msg) {
         Config->logN(4, "Map values for item %s", msg.c_str());
 
         JsonArray map = elem["mapping"].as<JsonArray>();
-        msg = this->MapItem(map, msg);
+        msg = this->MapItem(map, msg, true);
       }
 
       int msgInt = msg.toInt(); // atoi(msg.c_str())
@@ -872,7 +872,7 @@ void modbus::ParseData() {
 
         JsonArray map = elem["mapping"].as<JsonArray>();
         if (datatype == "binary") d.value = this->MapBitwise(map, d.value);
-        else d.value = this->MapItem(map, d.value);
+        else d.value = this->MapItem(map, d.value, false);
       }
 
       Config->logN(4, "Data: %s -> %s %s", d.Name.c_str(), d.value.c_str(), d.unit.c_str());
@@ -973,16 +973,18 @@ String modbus::MapBitwise(JsonArray map, String value) {
 /*******************************************************
  * Map a value to a predefined constant string
 *******************************************************/
-String modbus::MapItem(JsonArray map, String value) {
+String modbus::MapItem(JsonArray map, String value, bool isSetter) {
   String ret = value;
 
   for (JsonArray mapItem : map) {
     String v1 = mapItem[0].as<String>();
     String v2 = mapItem[1].as<String>();
 
-    v1.toLowerCase();
-    v2.toLowerCase();
-    value.toLowerCase();
+    if (isSetter) {
+      v1.toLowerCase();
+      v2.toLowerCase();
+      value.toLowerCase();
+    }
 
     if (value == v1) {
       ret = v2;
