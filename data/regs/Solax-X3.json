@@ -1550,7 +1550,7 @@
             553,
             554
           ],
-          "name": "BatChargeMaxSoc",
+          "name": "BatChargeMaxSoC",
           "realname": "Battery Charge Max SoC",
           "datatype": "integer",
           "unit": "&percnt;"
