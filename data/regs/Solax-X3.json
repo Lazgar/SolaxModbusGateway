@@ -1473,11 +1473,11 @@
           "mapping": [
             [
               0,
-              "Enable"
+              "Disable"
             ],
             [
               1,
-              "Disable"
+              "Enable"
             ]
           ]
         },
@@ -1492,11 +1492,11 @@
           "mapping": [
             [
               0,
-              "Enable"
+              "Disable"
             ],
             [
               1,
-              "Disable"
+              "Enable"
             ]
           ]
         },
