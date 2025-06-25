@@ -1483,6 +1483,25 @@
         },
         {
           "position": [
+            583,
+            584
+          ],
+          "name": "MicroGridFunction",
+          "realname": "MicroGrid Function",
+          "datatype": "integer",
+          "mapping": [
+            [
+              0,
+              "Enable"
+            ],
+            [
+              1,
+              "Disable"
+            ]
+          ]
+        },
+        {
+          "position": [
             537,
             538
           ],
@@ -2005,6 +2024,27 @@
         "name": "setShutdownFunc",
         "realname": "EVU Shutdown Function",
         "info": "Enable or Disable the EVU Shutdown Function",
+        "mapping": [
+          [
+            "Disable",
+            0
+          ],
+          [
+            "Enable",
+            1
+          ]
+        ]
+        "request": [
+          "#ClientID",
+          "0x06",
+          "0x00",
+          "0x52"
+        ]
+      },
+      {
+        "name": "setMicroGrid",
+        "realname": "MicroGrid Function",
+        "info": "Enable or Disable the MicroGrid Function",
         "mapping": [
           [
             "Disable",
