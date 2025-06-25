@@ -1547,6 +1547,16 @@
         },
         {
           "position": [
+            553,
+            554
+          ],
+          "name": "BatChargeMaxSoc",
+          "realname": "Battery Charge Max SoC",
+          "datatype": "integer",
+          "unit": "&percnt;"
+        },
+        {
+          "position": [
             302
           ],
           "name": "SelfUseMinSoC",
@@ -2020,6 +2030,17 @@
           "0x06",
           "0x01",
           "0x13"
+        ]
+      },
+      {
+        "name": "setBatChargeMaxSoc",
+        "realname": "Battery Charge Max SoC",
+        "info": "this is the main Chargelimit for the Battery",
+        "request": [
+          "#ClientID",
+          "0x06",
+          "0x00",
+          "0xE0"
         ]
       },
       {
