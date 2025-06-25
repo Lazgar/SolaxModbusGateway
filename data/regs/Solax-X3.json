@@ -2033,7 +2033,7 @@
             "Enable",
             1
           ]
-        ]
+        ],
         "request": [
           "#ClientID",
           "0x06",
@@ -2054,7 +2054,7 @@
             "Enable",
             1
           ]
-        ]
+        ],
         "request": [
           "#ClientID",
           "0x06",
