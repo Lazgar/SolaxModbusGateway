@@ -1464,8 +1464,8 @@
         },
         {
           "position": [
-            581,
-            582
+            762,
+            763
           ],
           "name": "ShutDownFunction",
           "realname": "ShutDown Function (EVU)",
@@ -2037,8 +2037,8 @@
         "request": [
           "#ClientID",
           "0x06",
-          "0x00",
-          "0x52"
+          "0x01",
+          "0x13"
         ]
       },
       {
