@@ -2033,7 +2033,7 @@
         ]
       },
       {
-        "name": "setBatChargeMaxSoc",
+        "name": "setBatChargeMaxSoC",
         "realname": "Battery Charge Max SoC",
         "info": "this is the main Chargelimit for the Battery",
         "request": [
