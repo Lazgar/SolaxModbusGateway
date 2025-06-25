@@ -1170,6 +1170,18 @@
           "realname": "VPP Ctrl Timeout",
           "datatype": "integer",
           "unit": "s"
+        },
+        {
+          "position": [
+            567,
+            568,
+            565,
+            566
+          ],
+          "name": "VPPPushPower",
+          "realname": "VPP Push Power",
+          "datatype": "integer",
+          "unit": "W"
         }
       ],
       "id": [
