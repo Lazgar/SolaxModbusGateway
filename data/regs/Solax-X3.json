@@ -1071,6 +1071,14 @@
             [
               3,
               "SoCTargetControl"
+            ],
+            [
+              4,
+              "PushPower-ChargeDischargeMode"
+            ],
+            [
+              5,
+              "PushPower-ZeroMode"
             ]
           ]
         },
