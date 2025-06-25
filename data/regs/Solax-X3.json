@@ -2007,11 +2007,11 @@
         "info": "Enable or Disable the EVU Shutdown Function",
         "mapping": [
           [
-            "Disable",
+            "Off",
             0
           ],
           [
-            "Enable",
+            "On",
             1
           ]
         ]
