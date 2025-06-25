@@ -1483,25 +1483,6 @@
         },
         {
           "position": [
-            583,
-            584
-          ],
-          "name": "MicroGridFunction",
-          "realname": "MicroGrid Function",
-          "datatype": "integer",
-          "mapping": [
-            [
-              0,
-              "Disable"
-            ],
-            [
-              1,
-              "Enable"
-            ]
-          ]
-        },
-        {
-          "position": [
             537,
             538
           ],
