@@ -1473,11 +1473,11 @@
           "mapping": [
             [
               0,
-              "Enabled"
+              "Enable"
             ],
             [
               1,
-              "Disabled"
+              "Disable"
             ]
           ]
         },
@@ -2007,11 +2007,11 @@
         "info": "Enable or Disable the EVU Shutdown Function",
         "mapping": [
           [
-            "Off",
+            "Disable",
             0
           ],
           [
-            "On",
+            "Enable",
             1
           ]
         ]
