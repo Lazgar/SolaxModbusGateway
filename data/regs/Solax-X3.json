@@ -1467,8 +1467,8 @@
             762,
             763
           ],
-          "name": "ShutDownFunction",
-          "realname": "ShutDown Function (EVU)",
+          "name": "ShutdownFunc",
+          "realname": "Shutdown Function (EVU)",
           "datatype": "integer",
           "mapping": [
             [
