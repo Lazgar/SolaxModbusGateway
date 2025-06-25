@@ -1464,6 +1464,25 @@
         },
         {
           "position": [
+            581,
+            582
+          ],
+          "name": "ShutDownFunction",
+          "realname": "ShutDown Function (EVU)",
+          "datatype": "integer",
+          "mapping": [
+            [
+              0,
+              "Enabled"
+            ],
+            [
+              1,
+              "Disabled"
+            ]
+          ]
+        },
+        {
+          "position": [
             537,
             538
           ],
@@ -1980,6 +1999,27 @@
           "0x06",
           "0x00",
           "0x6B"
+        ]
+      },
+      {
+        "name": "setShutdownFunc",
+        "realname": "EVU Shutdown Function",
+        "info": "Enable or Disable the EVU Shutdown Function",
+        "mapping": [
+          [
+            "Disable",
+            0
+          ],
+          [
+            "Enable",
+            1
+          ]
+        ]
+        "request": [
+          "#ClientID",
+          "0x06",
+          "0x00",
+          "0x52"
         ]
       }
     ]
