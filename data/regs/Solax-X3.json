@@ -1448,17 +1448,17 @@
             529,
             530
           ],
-          "name": "DRMFunction",
+          "name": "DRMFunc",
           "realname": "DRM Function",
           "datatype": "integer",
           "mapping": [
             [
               0,
-              "Off"
+              "Disable"
             ],
             [
               1,
-              "On"
+              "Enable"
             ]
           ]
         },
@@ -2042,9 +2042,9 @@
         ]
       },
       {
-        "name": "setMicroGrid",
-        "realname": "MicroGrid Function",
-        "info": "Enable or Disable the MicroGrid Function",
+        "name": "setDRMFunc",
+        "realname": "DRM Function",
+        "info": "Enable or Disable the DRM Function",
         "mapping": [
           [
             "Disable",
@@ -2059,7 +2059,7 @@
           "#ClientID",
           "0x06",
           "0x00",
-          "0x53"
+          "0xA9"
         ]
       }
     ]
