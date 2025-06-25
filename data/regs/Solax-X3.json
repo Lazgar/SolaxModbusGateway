@@ -2042,27 +2042,6 @@
           "0x00",
           "0xE0"
         ]
-      },
-      {
-        "name": "setDRMFunc",
-        "realname": "DRM Function",
-        "info": "Enable or Disable the DRM Function",
-        "mapping": [
-          [
-            "Disable",
-            0
-          ],
-          [
-            "Enable",
-            1
-          ]
-        ],
-        "request": [
-          "#ClientID",
-          "0x06",
-          "0x00",
-          "0xA9"
-        ]
       }
     ]
   }
