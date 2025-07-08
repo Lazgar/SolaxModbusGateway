@@ -1758,7 +1758,7 @@
       },
       {
         "name": "setExportLimit",
-        "realname": "Export Limit in Watt",
+        "realname": "Export Limit",
         "info": "can be set in steps of 10, if you send 100 the limit is set to 1000 W",
         "request": [
           "#ClientID",
