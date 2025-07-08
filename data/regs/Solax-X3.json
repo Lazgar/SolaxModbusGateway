@@ -470,6 +470,16 @@
         },
         {
           "position": [
+            79,
+            80
+          ],
+          "name": "BatMaxEnergy",
+          "realname": "Battery Maximum Energy",
+          "datatype": "integer",
+          "unit": "Wh"
+        },
+        {
+          "position": [
             388,
             389
           ],
