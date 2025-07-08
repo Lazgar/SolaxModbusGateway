@@ -1398,11 +1398,11 @@
         },
         {
           "position": [
-            370,
-            371
+            372,
+            373
           ],
           "name": "ExportLimit",
-          "realname": "Factory Export Limit",
+          "realname": "Export Limit",
           "datatype": "integer",
           "factor": 10,
           "unit": "W"
@@ -1758,13 +1758,13 @@
       },
       {
         "name": "setExportLimit",
-        "realname": "Factory Export Limit",
+        "realname": "Export Limit",
         "info": "can be set in steps of 10, if you send 100 the limit is set to 1000 W",
         "request": [
           "#ClientID",
           "0x06",
           "0x00",
-          "0x41"
+          "0x42"
         ]
       },
       {
