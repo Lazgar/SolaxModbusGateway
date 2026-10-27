@@ -1,5 +1,5 @@
 Release 3.4.3:
-  - ...
+  - feature: new datatype "join" for json register definitions, joins several register groups with a "separator" (default "."), e.g. firmware versions (1.12.0)
   
 Release 3.4.2:
   - feature: specific board settings via board.h, important for ESP32-C3
