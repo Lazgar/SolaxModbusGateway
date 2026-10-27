@@ -910,6 +910,53 @@ void modbus::ParseData() {
         val_i = (this->JsonPosArrayToInt(posArray, posArray2) * factor) + valueAdd;
         d.value = this->ConvertIntToBinaryString(val_i, posArray.size() * 8);
       
+      } else if (datatype == "join") {
+        //********** handle Datatype Join ***********//
+        // position is an array of groups, e.g. [[19,20],[21,22]]. Each group is read as one
+        // unsigned big-endian number, all groups are joined by "separator" (default ".")
+        String separator = ".";
+        if (elem["separator"].is<const char*>()) {
+          separator = elem["separator"].as<String>();
+        }
+
+        String version = "";
+        bool valid = !posArray.isNull() && posArray.size() > 0;
+        bool first = true;
+
+        for (JsonVariant group : posArray) {
+          uint32_t groupVal = 0;
+
+          if (group.is<JsonArray>()) {
+            for (uint16_t pos : group.as<JsonArray>()) {
+              if (pos < this->DataFrame->size()) {
+                groupVal = (groupVal << 8) | this->DataFrame->at(pos);
+              } else {
+                Config->logN(1, "Error: for item '%s' position %d out of dataframe range", d.Name.c_str(), pos);
+                valid = false;
+              }
+            }
+          } else if (group.is<uint16_t>()) {
+            uint16_t pos = group.as<uint16_t>();
+            if (pos < this->DataFrame->size()) {
+              groupVal = this->DataFrame->at(pos);
+            } else {
+              Config->logN(1, "Error: for item '%s' position %d out of dataframe range", d.Name.c_str(), pos);
+              valid = false;
+            }
+          } else {
+            Config->logN(1, "Error: for item '%s' invalid position entry for datatype join", d.Name.c_str());
+            valid = false;
+          }
+
+          if (!valid) break;
+
+          if (!first) version += separator;
+          version += String(groupVal);
+          first = false;
+        }
+
+        d.value = valid ? version : "";
+
       } else if (datatype == "string") {
         //********** handle Datatype String ***********//
         if (!posArray.isNull()) { 
