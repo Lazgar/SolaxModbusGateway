@@ -1217,6 +1217,38 @@
         },
         {
           "position": [
+            [
+              262,
+              263
+            ],
+            [
+              258,
+              259
+            ]
+          ],
+          "name": "FirmwareDSP",
+          "realname": "Firmware DSP (Major.Minor)",
+          "datatype": "join",
+          "separator": "."
+        },
+        {
+          "position": [
+            [
+              264,
+              265
+            ],
+            [
+              270,
+              271
+            ]
+          ],
+          "name": "FirmwareARM",
+          "realname": "Firmware ARM (Major.Minor)",
+          "datatype": "join",
+          "separator": "."
+        },
+        {
+          "position": [
             535,
             536
           ],
